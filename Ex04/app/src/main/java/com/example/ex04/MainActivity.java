@@ -50,12 +50,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edtdoC.setText("");
-                edtdoF.setText("");
-            }
-        });
+
     }
 }
