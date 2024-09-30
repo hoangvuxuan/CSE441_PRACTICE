@@ -1,12 +1,17 @@
 package com.example.ex06;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -62,12 +67,11 @@ public class MainActivity extends AppCompatActivity {
         }
 //Kiểm tra bằng cấp
         String bang="";
-        group = findViewById(R.id.idgruop);
+        group = findViewById(R.id.rdb_group);
         int id=group.getCheckedRadioButtonId();// Trả về Id
         if(id==-1)
         {
             Toast.makeText(this, "Phải chọn bằng cấp",
-                    32
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -107,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         AlertDialog.Builder b =new
                 AlertDialog.Builder(MainActivity.this);
         b.setTitle("Question");

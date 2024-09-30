@@ -65,6 +65,7 @@
         android:text="TextView" />
 
     <RadioGroup
+        android:id="@+id/rdb_group"
         android:layout_width="match_parent"
         android:layout_height="166dp">
 
