@@ -1,4 +1,4 @@
-package com.example.prac022;
+package com.example.prac02;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
