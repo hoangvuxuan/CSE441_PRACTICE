@@ -25,4 +25,13 @@
         android:textSize="30sp"
         android:textColor="@android:color/holo_green_dark"
         android:textStyle="normal|bold" />
+
+    <Button
+        android:text="bt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_bt2"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="normal|bold" />
 </LinearLayout>

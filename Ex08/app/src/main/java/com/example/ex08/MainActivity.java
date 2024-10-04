@@ -28,12 +28,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
         Button btnSend = findViewById(R.id.btnsendsms);
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent2 =new Intent(MainActivity.this,SendSMSActivity.class);
                 startActivity(intent2);
+            }
+        });
+
+        Button btn2 = findViewById(R.id.btn_bt2);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 =new Intent(MainActivity.this, bt2.class);
+                startActivity(intent3);
             }
         });
 
