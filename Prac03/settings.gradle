@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Prac03"
-include(":app")
- 
+include ':app'
