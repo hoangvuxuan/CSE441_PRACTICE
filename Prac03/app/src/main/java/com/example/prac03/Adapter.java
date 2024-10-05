@@ -1,6 +1,7 @@
 package com.example.prac03;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.countryName.setText(countries.get(position).getName());
         holder.imageView.setImageResource(countries.get(position).getFlagResource());
         holder.capital.setText(countries.get(position).getCapital());
+
+        Country country = countries.get(position);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("flag", country.getFlagResource());
+            intent.putExtra("name", country.getName());
+            intent.putExtra("capital", country.getCapital());
+            intent.putExtra("area", country.getArea());
+            intent.putExtra("density", country.getAlpha2());
+            intent.putExtra("population", country.getPopulation());
+            intent.putExtra("worldShare", country.getAlpha3());
+            context.startActivity(intent);
+        });
 
     }
 
