@@ -1,5 +1,6 @@
 [versions]
 agp = "8.6.0"
+githubWorldcountrydata = "v1.5.4-alpha-1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -7,6 +8,8 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+worldcountrydata = "1.5.4"
+worldcountrydataVersion = "1.5.4-alpha-1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -16,6 +19,9 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+worldcountrydata = { module = "com.github.blongho:worldCountryData", version.ref = "worldcountrydata" }
+worldcountrydata-v154alpha1 = { module = "com.github.blongho:worldCountryData", version.ref = "worldcountrydataVersion" }
+worldcountrydata-vv154alpha1 = { module = "com.github.blongho:worldCountryData", version.ref = "githubWorldcountrydata" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
