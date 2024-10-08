@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "full_name": {
+      "first": "John",
+      "last": "Doe",
+      "midd": "Michael"
+    },
+    "gender": "Male",
+    "birth_date": "1998-05-10",
+    "email": "john.doe@example.com",
+    "address": "123 Main St, City, Country",
+    "major": "Computer Science",
+    "gpa": 3.8,
+    "year": 4
+  },
+  {
+    "id": 1,
+    "full_name": {
+      "first": "John",
+      "last": "Doe",
+      "midd": "Michael"
+    },
+    "gender": "Male",
+    "birth_date": "1998-05-10",
+    "email": "john.doe@example.com",
+    "address": "123 Main St, City, Country",
+    "major": "Computer Science",
+    "gpa": 3.8,
+    "year": 4
+  },
+  {
+    "id": 2,
+    "full_name": {
+      "first": "Jane",
+      "last": "Smith",
+      "midd": "Ann"
+    },
+    "gender": "Female",
+    "birth_date": "1999-08-22",
+    "email": "jane.smith@example.com",
+    "address": "456 Oak St, City, Country",
+    "major": "Business Administration",
+    "gpa": 3.9,
+    "year": 3
+  },
+  {
+    "id": 3,
+    "full_name": {
+      "first": "Peter",
+      "last": "Johnson",
+      "midd": "Edward"
+    },
+    "gender": "Male",
+    "birth_date": "2000-02-15",
+    "email": "peter.johnson@example.com",
+    "address": "789 Pine St, City, Country",
+    "major": "Mechanical Engineering",
+    "gpa": 3.5,
+    "year": 2
+  }
+]
