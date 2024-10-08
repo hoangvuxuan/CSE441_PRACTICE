@@ -17,6 +17,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public RecyclerView recyclerView;
     public StudentAdapter studentAdapter;
     public List<Student> studentList;
+    public boolean isAscending = true;
 
 
     @Override
@@ -40,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, activity_add_student.class);
                 startActivityForResult(intent, 1);
+            }
+        });
+
+        TextView tv_sort = findViewById(R.id.tv_sort); // Đảm bảo ID này đúng với XML
+        tv_sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sortStudentList();
             }
         });
 
@@ -67,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void sortStudentList() {
+        Collections.sort(studentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student s1, Student s2) {
+                if (isAscending) {
+                    return s1.getFull_name().getFirst().compareTo(s2.getFull_name().getFirst());
+                } else {
+                    return s2.getFull_name().getFirst().compareTo(s1.getFull_name().getFirst());
+                }
+            }
+        });
+        studentAdapter.notifyDataSetChanged(); // Cập nhật RecyclerView
+        isAscending = !isAscending; // Đảo ngược thứ tự
+    }
+
 
     private String loadJSONFromAsset() {
         String json = null;
