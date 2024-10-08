@@ -7,17 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.gson.Gson;
 
 public class EditActivity extends AppCompatActivity {
 
-    private EditText editTextTen, editTextTenDem, editTextHo, editTextGPA;
+    private EditText editTextTen, editTextTenDem, editTextHo, editTextNgaySinh, editTextEmail, editTextDiaChi, editTextChuyenNganh, editTextGPA, editTextNamHoc;
     private RadioGroup radioGroupGioiTinh;
     private Button buttonLuu;
     private Student student;
@@ -26,7 +22,7 @@ public class EditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_student); // Thiết kế layout chỉnh sửa sinh viên
+        setContentView(R.layout.activity_edit);
 
         initView();
 
@@ -46,24 +42,34 @@ public class EditActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        editTextTen = findViewById(R.id.editTextTen);
-        editTextTenDem = findViewById(R.id.editTextTenDem);
-        editTextHo = findViewById(R.id.editTextHo);
-        editTextGPA = findViewById(R.id.editTextGPA);
-        radioGroupGioiTinh = findViewById(R.id.radioGroupGioiTinh);
-        buttonLuu = findViewById(R.id.buttonLuu);
+        editTextTen = findViewById(R.id.editText_ten);
+        editTextTenDem = findViewById(R.id.editText_tenDem);
+        editTextHo = findViewById(R.id.editText_ho);
+        editTextNgaySinh = findViewById(R.id.editText_ngaySinh);
+        editTextEmail = findViewById(R.id.editText_email);
+        editTextDiaChi = findViewById(R.id.editText_diaChi);
+        editTextChuyenNganh = findViewById(R.id.editText_chuyenNganh);
+        editTextGPA = findViewById(R.id.editText_gpa);
+        editTextNamHoc = findViewById(R.id.editText_namHoc);
+        radioGroupGioiTinh = findViewById(R.id.radioGroup_gioiTinh);
+        buttonLuu = findViewById(R.id.button_luu);
     }
 
     private void populateData() {
         editTextTen.setText(student.getFull_name().getFirst());
         editTextTenDem.setText(student.getFull_name().getMidd());
         editTextHo.setText(student.getFull_name().getLast());
+        editTextNgaySinh.setText(student.getBirth_date());
+        editTextEmail.setText(student.getEmail());
+        editTextDiaChi.setText(student.getAddress());
+        editTextChuyenNganh.setText(student.getMajor());
         editTextGPA.setText(String.valueOf(student.getGpa()));
+        editTextNamHoc.setText(String.valueOf(student.getYear()));
 
         if (student.getGender().equalsIgnoreCase("Male")) {
-            radioGroupGioiTinh.check(R.id.radioButtonNam);
+            radioGroupGioiTinh.check(R.id.radioButton_nam);
         } else {
-            radioGroupGioiTinh.check(R.id.radioButtonNu);
+            radioGroupGioiTinh.check(R.id.radioButton_nu);
         }
     }
 
@@ -72,10 +78,15 @@ public class EditActivity extends AppCompatActivity {
         student.getFull_name().setFirst(editTextTen.getText().toString().trim());
         student.getFull_name().setMidd(editTextTenDem.getText().toString().trim());
         student.getFull_name().setLast(editTextHo.getText().toString().trim());
+        student.setBirth_date(editTextNgaySinh.getText().toString().trim());
+        student.setEmail(editTextEmail.getText().toString().trim());
+        student.setAddress(editTextDiaChi.getText().toString().trim());
+        student.setMajor(editTextChuyenNganh.getText().toString().trim());
         student.setGpa(Double.parseDouble(editTextGPA.getText().toString().trim()));
+        student.setYear(Integer.parseInt(editTextNamHoc.getText().toString().trim()));
 
         int selectedId = radioGroupGioiTinh.getCheckedRadioButtonId();
-        if (selectedId == R.id.radioButtonNam) {
+        if (selectedId == R.id.radioButton_nam) {
             student.setGender("Male");
         } else {
             student.setGender("Female");
