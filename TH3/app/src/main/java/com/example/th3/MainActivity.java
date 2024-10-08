@@ -88,25 +88,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Student newStudent = (Student) data.getSerializableExtra("new_student");
             if (newStudent != null) {
                 studentList.add(newStudent);
                 studentAdapter.notifyItemInserted(studentList.size() - 1);
             }
-        }
-
-
-        else if (requestCode == 2 && resultCode == RESULT_OK) {
-            String studentJson = data.getStringExtra("edited_student");
+        } else if (requestCode == 2 && resultCode == RESULT_OK) {
+            boolean isDeleted = data.getBooleanExtra("delete_student", false);
             int position = data.getIntExtra("position", -1);
-            if (studentJson != null && position != -1) {
-                Student editedStudent = new Gson().fromJson(studentJson, Student.class);
-                studentList.set(position, editedStudent);
-                studentAdapter.notifyItemChanged(position);
+
+            if (isDeleted && position != -1) {
+                // Xoá sinh viên khỏi danh sách
+                studentList.remove(position);
+                studentAdapter.notifyItemRemoved(position);
+            } else {
+                // Cập nhật sinh viên
+                String studentJson = data.getStringExtra("edited_student");
+                if (studentJson != null && position != -1) {
+                    Student editedStudent = new Gson().fromJson(studentJson, Student.class);
+                    studentList.set(position, editedStudent);
+                    studentAdapter.notifyItemChanged(position);
+                }
             }
         }
     }
+
 
 }

@@ -1,12 +1,15 @@
 package com.example.th3;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
@@ -15,9 +18,10 @@ public class EditActivity extends AppCompatActivity {
 
     private EditText editTextTen, editTextTenDem, editTextHo, editTextNgaySinh, editTextEmail, editTextDiaChi, editTextChuyenNganh, editTextGPA, editTextNamHoc;
     private RadioGroup radioGroupGioiTinh;
-    private Button buttonLuu;
+    private Button buttonLuu, buttonXoa;
     private Student student;
     private int position;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,14 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveStudent();
+            }
+        });
+
+        buttonXoa = findViewById(R.id.button_xoa);
+        buttonXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDelete();
             }
         });
     }
@@ -98,5 +110,27 @@ public class EditActivity extends AppCompatActivity {
         intent.putExtra("position", position);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    private void confirmDelete() {
+        new AlertDialog.Builder(this)
+                .setTitle("Xóa sinh viên")
+                .setMessage("Bạn có chắc chắn muốn xóa sinh viên không?")
+                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent();
+                        intent.putExtra("delete_student", true);
+                        intent.putExtra("position", position);
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                })
+                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
