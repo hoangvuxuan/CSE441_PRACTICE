@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- TextView để hiển thị kết quả -->
+    <TextView
+        android:id="@+id/selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5576BE"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:padding="8dp" />
+
+    <!-- AutoCompleteTextView để gợi ý nhập tỉnh thành -->
+    <AutoCompleteTextView
+        android:id="@+id/editauto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:hint="Nhập tỉnh thành" />
+
+    <!-- MultiAutoCompleteTextView để gợi ý nhập nhiều tỉnh thành -->
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiAutoCompleteTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:hint="Nhập nhiều tỉnh thành, cách nhau bằng dấu phẩy" />
+</LinearLayout>
