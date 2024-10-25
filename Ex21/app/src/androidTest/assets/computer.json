@@ -1,0 +1,22 @@
+{
+  "MaDM": "DM01",
+  "TenDM": "Danh mục máy tính",
+  "Sanphams": [
+    {
+      "MaSP": "SP01",
+      "TenSP": "Laptop Dell",
+      "SoLuong": 10,
+      "DonGia": 15000000,
+      "ThanhTien": 150000000,
+      "Hinh": "dell.png"
+    },
+    {
+      "MaSP": "SP02",
+      "TenSP": "Laptop HP",
+      "SoLuong": 5,
+      "DonGia": 12000000,
+      "ThanhTien": 60000000,
+      "Hinh": "hp.png"
+    }
+  ]
+}
