@@ -13,6 +13,6 @@ public class List {
         this.link = link;
     }
 
-   
+
 }
 
