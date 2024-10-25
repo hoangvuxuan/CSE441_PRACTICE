@@ -8,6 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/edttim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tìm kiếm bài hát" />
+
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
@@ -19,27 +25,18 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <!-- Tab Tìm Kiếm -->
             <LinearLayout
                 android:id="@+id/tab1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/edttim"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập mã hoặc tên bài hát"
-                    android:padding="10dp"/>
-
                 <ListView
-                    android:id="@+id/lv1"
+                    android:id="@+id/listview1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
-            <!-- Tab Danh Sách Bài Hát -->
             <LinearLayout
                 android:id="@+id/tab2"
                 android:layout_width="match_parent"
@@ -47,12 +44,11 @@
                 android:orientation="vertical">
 
                 <ListView
-                    android:id="@+id/lv2"
+                    android:id="@+id/listview2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
-            <!-- Tab Bài Hát Yêu Thích -->
             <LinearLayout
                 android:id="@+id/tab3"
                 android:layout_width="match_parent"
@@ -60,11 +56,10 @@
                 android:orientation="vertical">
 
                 <ListView
-                    android:id="@+id/lv3"
+                    android:id="@+id/listview3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
-
         </FrameLayout>
     </LinearLayout>
 </TabHost>
