@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<employees>
+    <employee id="1">
+        <name>John Doe</name>
+        <phone>123-456-7890</phone>
+    </employee>
+    <employee id="2">
+        <name>Jane Smith</name>
+        <phone>987-654-3210</phone>
+    </employee>
+</employees>
